@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CRICKET_LOVER — Landing</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="background-image:url('stadium-bg.jpg');background-size:cover;background-position:center;">
+  <div class="container">
+    <div class="card" role="main" aria-label="CRICKET_LOVER landing">
+      <img src="dp.jpg" class="dp" alt="CRICKET_LOVER">
+      <h1>CRICKET_LOVER 🏏</h1>
+      <p class="sub">Match previews • Tips • Scoreboard reads — calm, numbers-first calls</p>
+      <div class="line" aria-hidden="true"></div>
+      <div class="stats" aria-hidden="true">
+        <div class="stat"><strong>500+</strong><br>Followers</div>
+        <div class="stat"><strong>78%</strong><br>Accuracy</div>
+      </div>
+      <div class="timer" id="timer">00:56</div>
+      <div class="timer-label">Seconds Left</div>
+      <a href="https://t.me/+mIgTJQdHpCJkMzM9" class="cta" id="joinBtn">Join CRICKET_LOVER</a>
+      <p class="note">Note: Nothing guaranteed. Play responsibly.</p>
+      <footer>Spots open: <strong>Very limited</strong> • Mindset: <strong>Professional & controlled</strong></footer>
+    </div>
+  </div>
+
+<script>
+let t = 56;
+const el = document.getElementById('timer');
+function tick(){
+  let m = Math.floor(t/60);
+  let s = t%60;
+  el.textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  if(t>0){ t--; setTimeout(tick,1000); } else {
+    document.getElementById('joinBtn').textContent = 'Join — Limited';
+    document.getElementById('joinBtn').style.boxShadow = '0 12px 40px rgba(56,243,106,0.12)';
+  }
+}
+tick();
+document.getElementById('joinBtn').addEventListener('click', function(e){
+  e.preventDefault();
+  this.textContent = 'Redirecting...';
+  setTimeout(()=> window.location.href = this.href, 420);
+});
+</script>
+</body>
+</html>
